@@ -1,13 +1,12 @@
 package com.uisrael.redsocialuisrael;
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
-import android.widget.Toast;
-
+import android.app.ProgressDialog;
+import android.content.Context;
+    import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -20,30 +19,27 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Iterator;
 
-/**
- * Created by Eddy on 14/01/2018.
- */
-
-
 public class ServicioTask extends AsyncTask<Void, Void, String> {
-    //variables del hilo
+
     private Context httpContext;//contexto
     ProgressDialog progressDialog;//dialogo cargando
-    public String resultadoapi="";
-    public String linkrequestAPI="";//link  para consumir el servicio rest
-    public String email="";
-    public String nombre="";
-    public String apellidos="";
-    public String password="";
-    //constructor del hilo (Asynctask)
+    private String resultadoapi="";
+    private String linkrequestAPI="";//link  para consumir el servicio rest
+    private String email="";
+    private String nombre="";
+    private String apellidos="";
+    private String password="";
+
+
     public ServicioTask(Context ctx, String linkAPI, String email, String  nombre, String apellidos, String password ){
         this.httpContext=ctx;
         this.linkrequestAPI=linkAPI;
         this.email=email;
         this.nombre=nombre;
-        this.apellidos=apellidos;
+        this.apellidos= apellidos;
         this.password=password;
     }
+
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
@@ -52,19 +48,19 @@ public class ServicioTask extends AsyncTask<Void, Void, String> {
 
     @Override
     protected String doInBackground(Void... params) {
+        //Declaracion de variables
         String result= null;
-
-        String wsURL = linkrequestAPI;
+        String wsURL = linkrequestAPI;//webservice
         URL url = null;
         try {
-            // se crea la conexion al api: http://localhost:1535/registro
+            // se crea la conexion al api:
             url = new URL(wsURL);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             //crear el objeto json para enviar por POST
             JSONObject parametrosPost= new JSONObject();
+            parametrosPost.put("email",email);
             parametrosPost.put("nombre",nombre);
             parametrosPost.put("apellidos",apellidos);
-            parametrosPost.put("email",email);
             parametrosPost.put("password",password);
 
             //DEFINIR PARAMETROS DE CONEXION
@@ -72,19 +68,24 @@ public class ServicioTask extends AsyncTask<Void, Void, String> {
             urlConnection.setConnectTimeout(15000 /* milliseconds */);
             urlConnection.setRequestMethod("POST");// se puede cambiar por delete ,put ,etc
             urlConnection.setDoInput(true);
-            urlConnection.setDoOutput(true);
+            urlConnection.setDoOutput(true);//insert into WS
+            urlConnection.setInstanceFollowRedirects(false);
+            urlConnection.setRequestProperty("Content-Type", "application/json");
+            urlConnection.setRequestProperty("charset", "utf-8");
+            urlConnection.setRequestProperty("Content-Length", "" );
+            urlConnection.setUseCaches (false);
 
 
             //OBTENER EL RESULTADO DEL REQUEST
             OutputStream os = urlConnection.getOutputStream();
-            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));//UTF-8
             writer.write(getPostDataString(parametrosPost));
-            writer.flush();
-            writer.close();
-            os.close();
+            writer.flush(); // UTF8-
+            writer.close();//
+            os.close();//CONEXION
 
             int responseCode=urlConnection.getResponseCode();// conexion OK?
-            if(responseCode== HttpURLConnection.HTTP_OK){
+            if(responseCode== HttpURLConnection.HTTP_OK){//ERROR
                 BufferedReader in= new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
 
                 StringBuffer sb= new StringBuffer("");
@@ -92,17 +93,13 @@ public class ServicioTask extends AsyncTask<Void, Void, String> {
                 while ((linea=in.readLine())!= null){
                     sb.append(linea);
                     break;
-
                 }
                 in.close();
                 result= sb.toString();
             }
             else{
                 result= new String("Error: "+ responseCode);
-
-
             }
-
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -113,8 +110,6 @@ public class ServicioTask extends AsyncTask<Void, Void, String> {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
         return  result;
 
     }
@@ -135,7 +130,7 @@ public class ServicioTask extends AsyncTask<Void, Void, String> {
         StringBuilder result = new StringBuilder();
         boolean first = true;
         Iterator<String> itr = params.keys();
-        while(itr.hasNext()){
+        while(itr.hasNext()){//HOLA
 
             String key= itr.next();
             Object value = params.get(key);
@@ -151,5 +146,4 @@ public class ServicioTask extends AsyncTask<Void, Void, String> {
         }
         return result.toString();
     }
-
 }

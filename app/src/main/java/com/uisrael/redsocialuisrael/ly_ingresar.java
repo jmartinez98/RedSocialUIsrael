@@ -28,7 +28,7 @@ public class ly_ingresar extends AppCompatActivity {
         int ancho = mVentanda.widthPixels;
         int alto = mVentanda.heightPixels;
 
-        getWindow().setLayout((int)(ancho*0.90), (int)(alto*0.50));
+        getWindow().setLayout((int)(ancho*0.90), (int)(alto*0.80));
 
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override

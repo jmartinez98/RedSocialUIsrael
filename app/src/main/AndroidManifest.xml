@@ -13,7 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ly_ingresar"></activity>
+        <activity android:name=".seguidores"></activity>
+        <activity android:name=".mensaje" />
+        <activity android:name=".Home" />
+        <activity android:name=".ly_ingresar" />
         <activity
             android:name=".ly_registrarse"
             android:theme="@style/AppTheme.lgoin" />

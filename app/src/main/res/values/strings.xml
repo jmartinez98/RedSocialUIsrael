@@ -4,6 +4,7 @@
     <string name="title_item_detail">Item Detail</string>
 
     <string name="dt_creatucuenta">Crea tu Cuenta</string>
+    <string name="dt_inicio">Inicio de Sesión</string>
     <string name="datos_personales">Datos Personales</string>
     <string name="dt_nombre">Nombre:</string>
     <string name="dt_apellido">Apellidos:</string>

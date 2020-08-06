@@ -2,11 +2,6 @@ package com.uisrael.redsocialuisrael;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-<<<<<<< HEAD
-import android.os.Bundle;
-
-public class Perfil extends AppCompatActivity {
-=======
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -72,22 +67,17 @@ public class Perfil extends AppCompatActivity {
 
     public static final String KEY_User_Document1 = "image";
     private String Document_img1 = "";
->>>>>>> 5f0f90c26fc4a60ec09320c828e79cbbe2121130
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
-<<<<<<< HEAD
-    }
-}
-=======
         etnom = findViewById(R.id.etNombre);
         etape = findViewById(R.id.etApellido);
         etmai = findViewById(R.id.etEmail);
 
-  //      hostname = getString(R.string.hostname);
-    //       basepath = getString(R.string.basepath);
+        //      hostname = getString(R.string.hostname);
+        //       basepath = getString(R.string.basepath);
 
         dato = getIntent().getExtras();
         idUsuario = ((MyApplication) this.getApplication()).getIdUsuario();
@@ -455,4 +445,3 @@ public class Perfil extends AppCompatActivity {
 
 
 
->>>>>>> 5f0f90c26fc4a60ec09320c828e79cbbe2121130

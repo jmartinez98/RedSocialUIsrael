@@ -33,15 +33,15 @@ public class ServicioTask extends AsyncTask<Void, Void, String> {
     public String linkrequestAPI="";//link  para consumir el servicio rest
     public String email="";
     public String nombre="";
-    public String apellido="";
+    public String apellidos="";
     public String password="";
     //constructor del hilo (Asynctask)
-    public ServicioTask(Context ctx, String linkAPI, String email, String  nombre, String apellido, String password ){
+    public ServicioTask(Context ctx, String linkAPI, String email, String  nombre, String apellidos, String password ){
         this.httpContext=ctx;
         this.linkrequestAPI=linkAPI;
         this.email=email;
         this.nombre=nombre;
-        this.apellido=apellido;
+        this.apellidos=apellidos;
         this.password=password;
     }
     @Override
@@ -63,7 +63,7 @@ public class ServicioTask extends AsyncTask<Void, Void, String> {
             //crear el objeto json para enviar por POST
             JSONObject parametrosPost= new JSONObject();
             parametrosPost.put("nombre",nombre);
-            parametrosPost.put("apellido",apellido);
+            parametrosPost.put("apellidos",apellidos);
             parametrosPost.put("email",email);
             parametrosPost.put("password",password);
 

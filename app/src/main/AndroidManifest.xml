@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.uisrael.redsocialuisrael">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -14,14 +14,19 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".Perfil"></activity>
-        <activity android:name=".seguidores" />
-        <activity android:name=".mensaje" />
-        <activity android:name=".Home" />
         <activity android:name=".ly_ingresar" />
+
         <activity
             android:name=".ly_registrarse"
             android:theme="@style/AppTheme.lgoin" />
+
+
+        <activity android:name=".Perfil"
+            tools:ignore="DuplicateActivity" />
         <activity android:name=".MainActivity">
+
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

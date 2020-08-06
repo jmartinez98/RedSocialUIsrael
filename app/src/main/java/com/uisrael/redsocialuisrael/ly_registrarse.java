@@ -80,7 +80,7 @@ public class ly_registrarse extends AppCompatActivity {
         String mail= etmail.getText().toString();
         String ps1= etpas1.getText().toString();
 
-        ServicioTask servicioTask= new ServicioTask(this,"https://localhost:1535/registro",nom,app,mail,ps1);
+        ServicioTask servicioTask= new ServicioTask(this,"https://192.168.0.3:4040/registro",nom,app,mail,ps1);
         servicioTask.execute();
 
     }

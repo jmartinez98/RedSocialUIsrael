@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Red Social UIsrael</string>
+    <string name="title_item_list">Items</string>
+    <string name="title_item_detail">Item Detail</string>
+
+    <string name="dt_creatucuenta">Crea tu Cuenta</string>
+    <string name="datos_personales">Datos Personales</string>
+    <string name="dt_nombre">Nombre:</string>
+    <string name="dt_apellido">Apellidos:</string>
+    <string name="dt_fecha">Fecha de Nacimiento:</string>
+    <string name="dt_email">Email:</string>
+    <string name="dt_password">Contraseña:</string>
+    <string name="dt_passwordr">Repetir Contraseña:</string>
+    <string name="dt_imgperfil">Imagen:</string>
+    <string name="dt_banner">Banner:</string>
+    <string name="dt_biografia">Biografía:</string>
+    <string name="dt_ubicacion">Ubicación:</string>
+
+
+</resources>
